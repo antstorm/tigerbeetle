@@ -1360,7 +1360,11 @@ fn build_c_client(
                 platform[0],
                 lib.out_filename,
             })).step);
+
+            std.log.warn("Lib for {s} compiled!", .{platform[0]});
         }
+
+        std.log.warn("All libs compiled!", .{});
     }
 }
 
