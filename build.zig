@@ -1347,7 +1347,7 @@ fn build_c_client(
             lib.root_module.addOptions("vsr_options", options.vsr_options);
 
             const full_path = b.pathJoin(&.{
-                "../../pkg/",
+                "../src/clients/c/lib/",
                 platform[0],
                 lib.out_filename,
             });
@@ -1356,7 +1356,7 @@ fn build_c_client(
             std.log.warn("out filename = {s}", .{lib.out_filename});
 
             step_clients_c.dependOn(&b.addInstallFile(lib.getEmittedBin(), b.pathJoin(&.{
-                "../../pkg/",
+                "../src/clients/c/lib/",
                 platform[0],
                 lib.out_filename,
             })).step);
