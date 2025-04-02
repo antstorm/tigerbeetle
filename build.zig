@@ -1346,6 +1346,15 @@ fn build_c_client(
             lib.root_module.addImport("vsr", options.vsr_module);
             lib.root_module.addOptions("vsr_options", options.vsr_options);
 
+            const full_path = b.pathJoin(&.{
+                "../src/clients/c/lib/",
+                platform[0],
+                lib.out_filename,
+            });
+            std.log.warn("full path = {s}", .{full_path});
+            // std.log.warn("emitted bin = {any}", .{lib.getEmittedBin()});
+            std.log.warn("out filename = {s}", .{lib.out_filename});
+
             step_clients_c.dependOn(&b.addInstallFile(lib.getEmittedBin(), b.pathJoin(&.{
                 "../src/clients/c/lib/",
                 platform[0],
